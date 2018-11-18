@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DM-AI</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="Description" CONTENT="DawnMist">
+    <link href="../css/style.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="theme-color" content="#2f2f2f">
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+</head>
+<body style="background:#fff !important">
+    <iframe id="allcontentAmz" src="" sandbox="allow-same-origin" frameborder="0" style="
+    display: none;
+"></iframe>
+<iframe id="allcontentFlipkart" src=""  frameborder="0" style="
+display: block;
+"></iframe>
+<div class="row maincont">
+    <div class="col-sm-6" >
+            <table id="items_returned" class="resultTable">
+                </table>
+    </div>
+    <div class="col-sm-6">
+        <table id="items_returnedFlipkart" class="resultTable"></table>
+    </div>
+        
+</div>
+</body>
+</html>
+<script src="../js/scrapAmazon.js"></script>
+<script src="../js/scrapFlipkart.js"></script>
+<script>    
+    allcontentAmz.src=src="http://localhost:8081/amazon?search="+document.location.hash.split('#')[1];
+    allcontentFlipkart.src=src="http://localhost:8081/?search="+document.location.hash.split('#')[1];
+       var tableFormat=`<caption style="caption-side:unset;text-align:center;font-size:20px;color:#000;">Amazon Results</caption><tr><th>Image</th>
+        
+                        <th>Item-Name</th><th>Price</th> </tr>`
+       var tableFormatFlipkart=`<caption style="caption-side:unset;text-align:center;font-size:20px;color:#000;">Flipkart Results</caption><tr><th>Image</th>
+        
+        <th>Item-Name</th><th>Price</th> </tr>`                
+    function loadData()
+    {
+        scrapAmazon();
+        scrapFlipkart();
+        for(let each of allAmazonItems)
+        {
+            tableFormat+=`<tr><td id="amzimg"><img src="${each.image}" class="items_img"/></td><td id="amztitle"><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td id="amzprice">&#8377;${each.price}</td></tr>`
+                
+        }
+        for(let each of allFlipkartItems)
+        {
+            tableFormatFlipkart+=`<tr><td id="amzimg"><img src="${each.image}" class="items_img"/></td><td id="amztitle"><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td id="amzprice">${each.price}</td></tr>`
+            
+        }
+
+        items_returned.innerHTML=tableFormat;
+        items_returnedFlipkart.innerHTML=tableFormatFlipkart;
+        
+    }
+    
+    allcontentAmz.onload=loadData;
+    window.onhashchange=()=>window.location.reload();
+    
+</script>

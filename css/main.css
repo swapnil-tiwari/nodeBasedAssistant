@@ -1,0 +1,168 @@
+body
+{
+	padding: 0;
+	margin:0 ;
+	background-color: #111111 !important;
+	overflow-x: hidden;
+}
+h1{
+
+}
+
+@font-face {
+font-family: Fandomonium;
+src: url(../fonts/Fandomonium.otf);
+}
+@font-face {
+font-family: Death_Hector;
+src: url(../fonts/Death_Hector.otf);
+}
+@font-face {
+font-family: Digital_tech;
+src: url(../fonts/Digital_tech.otf);
+}
+#caption
+{
+	font-family: Fandomonium;
+	color: white;
+	font-size: 80px;
+	text-shadow: 2px 3px #3535b0;
+}
+#caption_1
+{
+	font-family: Digital_tech;
+	color: white;
+	font-size: 40px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #111111;
+  padding: 10px;
+  max-width: 900px;
+  height: 500px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-item {
+  background-color:rgba(33, 34, 42, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+#login_form
+{
+	max-width: 60%;
+	height: auto;
+	margin-top:2%;
+}
+.form_items
+{
+	height:30px ;
+	width: 300px;
+	margin-top: 30px;
+	border:2px solid blue;
+	background-color: transparent;
+	color: white;
+	border:0px;
+	border-bottom: 2px solid blue;
+}
+#welcome_user
+{
+	max-width: 50%;
+	max-height: 40%;
+	color: white;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	font-size: 30px;
+}
+.items_img
+{
+	width: 80px;
+	height: auto;
+}
+.maincont
+{
+	width: 75%;
+	margin: auto !important;
+}
+input:focus:required:invalid {border: 1px solid red;}
+input:required:valid { border: 2px solid black; }
+.login_label
+{
+	color: green;
+}
+canvas
+{
+	height: 100%;
+	width: 100%;
+}
+@media screen and (max-width: 600px)
+
+{
+	#caption
+	{
+
+		color: white;
+		font-size: 70px;
+		text-shadow: 2px 3px #3535b0;
+	}
+	#caption_1
+	{
+		font-family: Digital_tech;
+		color: white;
+		font-size: 30px;
+	}
+	.form_items
+	{
+		max-width: 200px;
+		max-height:30px;
+	}
+}
+#price_container
+{
+	max-width: 50%;
+	max-height: 40%;
+	color: white;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	font-size: 30px;
+}
+.price_label
+{
+	color:green;
+}
+.resultTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+		width: 50%;
+		margin:auto;
+}
+
+.resultTable td, .resultTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.resultTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.resultTable tr:hover {background-color: #ddd;}
+
+.resultTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #08A7F0;
+    color: white;
+}
