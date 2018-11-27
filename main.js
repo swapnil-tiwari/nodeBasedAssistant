@@ -2,24 +2,68 @@ var express=require('express');
 var app=express();
 var request = require('request');
 app.get('/amazon',function(req,res){
-    console.log('Request recevied');
+    console.log('~Amazon Request recevied');
     var search=req.param('search');
-    request(`https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=${search}`, function (error, response, body) {
-        console.log('error:', error); 
+    console.log(`Item to be searched: ${search}`);
+    request(
+        {
+            url:`https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=${search}`,
+            headers:{
+                'accept-encoding':'identity'
+            }
+        }, function (error, response, body) {
+        //console.log('error:', error);
+        console.log('-------------------------------------'); 
+         
         console.log('statusCode:', response && response.statusCode);
         console.log('body:Available-------');
-        console.log(body);
+        console.log('-------------------------------------'); 
+        
+        //console.log(body);
         res.end(body);
       });
 
 })
 app.get('/',function(req,res){
-    console.log('Request recevied');
+    console.log('~Flipkart Request recevied');
     var search=req.param('search');
+    console.log(`Item to be searched: ${search}`);
     request(`https://www.flipkart.com/search?q=${search}`, function (error, response, body) {
-        console.log('error:', error); 
+        //console.log('error:', error);
+        console.log('-------------------------------------'); 
         console.log('statusCode:', response && response.statusCode);
         console.log('body:Available-----');
+        console.log('---------------------------------------');
+       //console.log(body);
+        res.end(body);
+      });
+      
+})
+app.get('/ebay',function(req,res){
+    console.log('~Ebay Request recevied');
+    var search=req.param('search');
+    console.log(`Item to be searched: ${search}`);
+    request(`https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2323847.m570.l1313.TR0.TRC0.A0.H0.Xcars.TRS2&_nkw=${search}`, function (error, response, body) {
+        //console.log('error:', error);
+        console.log('-------------------------------------'); 
+        console.log('statusCode:', response && response.statusCode);
+        console.log('body:Available-----');
+        console.log('---------------------------------------');
+       //console.log(body);
+        res.end(body);
+      });
+      
+})
+app.get('/snapdeal',function(req,res){
+    console.log('~Snapdeal Request recevied');
+    var search=req.param('search');
+    console.log(`Item to be searched: ${search}`);
+    request(`https://www.snapdeal.com/search?keyword=${search}`, function (error, response, body) {
+        //console.log('error:', error);
+        console.log('-------------------------------------'); 
+        console.log('statusCode:', response && response.statusCode);
+        console.log('body:Available-----');
+        console.log('---------------------------------------');
        //console.log(body);
         res.end(body);
       });
@@ -27,7 +71,6 @@ app.get('/',function(req,res){
 })
 app.use(express.static('./'));
 
-var html;
 
 
 

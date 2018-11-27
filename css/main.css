@@ -85,12 +85,12 @@ src: url(../fonts/Digital_tech.otf);
 }
 .items_img
 {
-	width: 80px;
+	width: 40px;
 	height: auto;
 }
 .maincont
 {
-	width: 75%;
+	width: 100%;
 	margin: auto !important;
 }
 input:focus:required:invalid {border: 1px solid red;}
@@ -147,7 +147,6 @@ canvas
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
 		width: 50%;
-		margin:auto;
 }
 
 .resultTable td, .resultTable th {

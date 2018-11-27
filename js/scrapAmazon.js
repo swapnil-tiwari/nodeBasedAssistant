@@ -1,6 +1,5 @@
 var allAmazonItems=[];
-var main='s-item-container'
-function scrapAmazon(main)
+function scrapAmazon()
 {
     var list=allcontentAmz.contentDocument.querySelectorAll('.s-item-container');
     for(let each of list)
