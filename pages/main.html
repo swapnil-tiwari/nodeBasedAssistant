@@ -48,10 +48,10 @@ display: none;"></iframe>
 <script src="../js/scrapEbay.js"></script>
 <script src="../js/scrapSnapdeal.js"></script>
 <script>    
-    allcontentAmz.src=src="http://localhost:8081/amazon?search="+document.location.hash.split('#')[1];
-    allcontentFlipkart.src=src="http://localhost:8081/?search="+document.location.hash.split('#')[1];
-    allcontentebay.src=src="http://localhost:8081/ebay?search="+document.location.hash.split('#')[1];
-    allcontentsnapdeal.src=src="http://localhost:8081/snapdeal?search="+document.location.hash.split('#')[1];
+    allcontentAmz.src=src="/amazon?search="+document.location.href.split('?q=')[1];
+    allcontentFlipkart.src=src="/flipkart?search="+document.location.href.split('?q=')[1];
+    allcontentebay.src=src="/ebay?search="+document.location.href.split('?q=')[1];
+    allcontentsnapdeal.src=src="/snapdeal?search="+document.location.href.split('?q=')[1];
        var tableFormat=`<caption style="caption-side:unset;text-align:center;font-size:20px;color:#000;">Amazon Results</caption><tr><th>Image</th>
         
                         <th>Item-Name</th><th>Price</th> </tr>`

@@ -72,7 +72,7 @@ src: url(../fonts/Digital_tech.otf);
 }
 #welcome_user
 {
-	max-width: 50%;
+	
 	max-height: 40%;
 	color: white;
 	margin: auto;
@@ -146,7 +146,7 @@ canvas
 .resultTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-		width: 50%;
+		
 }
 
 .resultTable td, .resultTable th {

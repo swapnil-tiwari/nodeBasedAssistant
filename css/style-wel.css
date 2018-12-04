@@ -1,0 +1,59 @@
+.welcome_user
+{
+    padding: 10px;
+    height: 60%;
+    width: 60%;
+    background: #F0F0F0;  /* fallback for old browsers */
+    
+    border: 1px solid #05668D;
+    border-radius: 10px;
+    box-shadow: -8px -7px 20px 0px #a9949494;
+    margin: auto;
+}
+.welcome_user input[type=text] {
+    height: 50px;
+    width: 60%;
+    margin-top: 30px;
+    border: 2px solid #25283B;
+    background-color: #25283B;
+    color: white;
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 10px;
+    padding-left: 20px;
+    font-weight: bolder;
+    -webkit-transition: all 0.5s;
+}
+.welcome_user input[type=text]:focus
+{
+outline: none;
+    background-color: rgba(255,255,255,1);
+    color: #595959;
+}
+.search-container
+{
+    width: 60%;
+    margin:auto;
+    text-align: center;
+}
+.welcome_msg
+{
+    text-align:center;
+}
+@media only screen and (max-width: 550px) {
+    
+    .welcome_user input[type=text]
+    {
+        width:90%;
+    }
+    .search-container
+    {
+        width: 100%;
+    }
+    .welcome_user{
+        height: unset;
+        width: 90%;
+    }
+
+
+}

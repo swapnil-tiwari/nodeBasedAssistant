@@ -16,7 +16,7 @@ app.get('/amazon',function(req,res){
         console.log('-------------------------------------'); 
          
         console.log('statusCode:', response && response.statusCode);
-        console.log('body:Available-------');
+        console.log('Amazon body:Available-------');
         console.log('-------------------------------------'); 
         
         //console.log(body);
@@ -24,7 +24,7 @@ app.get('/amazon',function(req,res){
       });
 
 })
-app.get('/',function(req,res){
+app.get('/flipkart',function(req,res){
     console.log('~Flipkart Request recevied');
     var search=req.param('search');
     console.log(`Item to be searched: ${search}`);
@@ -32,7 +32,7 @@ app.get('/',function(req,res){
         //console.log('error:', error);
         console.log('-------------------------------------'); 
         console.log('statusCode:', response && response.statusCode);
-        console.log('body:Available-----');
+        console.log('Flipkart body:Available-----');
         console.log('---------------------------------------');
        //console.log(body);
         res.end(body);
@@ -47,7 +47,7 @@ app.get('/ebay',function(req,res){
         //console.log('error:', error);
         console.log('-------------------------------------'); 
         console.log('statusCode:', response && response.statusCode);
-        console.log('body:Available-----');
+        console.log('Ebay body:Available-----');
         console.log('---------------------------------------');
        //console.log(body);
         res.end(body);
@@ -62,7 +62,7 @@ app.get('/snapdeal',function(req,res){
         //console.log('error:', error);
         console.log('-------------------------------------'); 
         console.log('statusCode:', response && response.statusCode);
-        console.log('body:Available-----');
+        console.log('Snapdeal body:Available-----');
         console.log('---------------------------------------');
        //console.log(body);
         res.end(body);
@@ -74,5 +74,5 @@ app.use(express.static('./'));
 
 
 
-app.listen(8081);
-console.log('Server running at port:8081');
+app.listen(process.env.PORT||80);
+console.log('Server running at port:80');

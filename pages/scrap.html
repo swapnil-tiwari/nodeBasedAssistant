@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>DM-AI</title>
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="Description" CONTENT="DawnMist">
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="theme-color" content="#2f2f2f">
+</head>
+
+<body>
+    <iframe id="allcontentAmz" src="" sandbox="allow-same-origin" frameborder="0" style="
+        display: none;
+    "></iframe>
+    <iframe id="allcontentFlipkart" src="" sandbox="allow-same-origin" frameborder="0" style="
+    display: none;
+    "></iframe>
+    <iframe id="allcontentebay" src="" sandbox="allow-same-origin" frameborder="0" style="
+    display: none;"></iframe>
+    <iframe id="allcontentsnapdeal" src="" sandbox="allow-same-origin" frameborder="0" style="
+    display: none;"></iframe>
+    <div class="maincont">
+        <div id="loader">
+            <img src="../images/load1.svg">
+        </div>
+        <div class="scrapcont animated fadeIn" id="scrapcontent_parent" style="display:none;">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">&nbsp;&nbsp;DM-AI {Scraper}</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active" id="amazon" onclick="loadTable('tableAmazon')"><a href="#">Amazon</a></li>
+                        <li class="" id="flipkart" onclick="loadTable('tableFlipkart')"><a href="#">Flipkart</a></li>
+                        <li class="" id="ebay" onclick="loadTable('tableEbay')"><a href="#">Ebay</a></li>
+                        <li class="" id="snapdeal" onclick="loadTable('tableSnapdeal')"><a href="#">Snapdeal</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left" action="./scrap.html" method="GET">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" name="q">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                        <button type="button" class="btn btn-default" id="showitembtn">Searched Item</button>
+
+                    </form>
+
+
+
+
+                </div>
+            </nav>
+            <div class="scrapcontent">
+                <table class="result_table" id="items_returned">
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="../js/scrapAmazon.js"></script>
+<script src="../js/scrapFlipkart.js"></script>
+<script src="../js/scrapEbay.js"></script>
+<script src="../js/scrapSnapdeal.js"></script>
+<script>
+    allcontentAmz.src=src="/amazon?search="+document.location.href.split('?q=')[1];
+    allcontentFlipkart.src=src="/flipkart?search="+document.location.href.split('?q=')[1];
+    allcontentebay.src=src="/ebay?search="+document.location.href.split('?q=')[1];
+    allcontentsnapdeal.src=src="/snapdeal?search="+document.location.href.split('?q=')[1];
+    showitembtn.innerHTML='<strong>Item</strong> = '+document.location.href.split('?q=')[1];
+
+    var tableAmazon='<tr><th>Image</th><th>Amazon Item-Name</th><th>Price</th> </tr>';
+    var tableFlipkart='<tr><th>Image</th><th>Flipkart Item-Name</th><th>Price</th> </tr>';
+    var tableEbay='<tr><th>Image</th><th>Ebay Item-Name</th><th>Price</th> </tr>';
+    var tableSnapdeal='<tr><th>Image</th><th>Snapdeal Item-Name</th><th>Price</th> </tr>';
+
+    function scrapData()
+    {
+        scrapAmazon();
+        scrapFlipkart();
+        scrapEbay();
+        scrapSnapdeal();
+        for(let each of allAmazonItems)
+        {
+            tableAmazon+=`<tr><td><img src="${each.image}" class="items_img"/></td><td><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td>&#8377;${each.price}</td></tr>`
+                
+        }
+        for(let each of allFlipkartItems)
+        {
+            tableFlipkart+=`<tr><td ><img src="../images/default.png" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+            
+        }
+        for(let each of allEbayItems)
+        {
+            tableEbay+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+                
+        }
+        for(let each of allSnapdealItems)
+        {
+            tableSnapdeal+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+                
+        }
+
+    }
+    function loadTable(sitename)
+    {
+        if(sitename=='tableAmazon')
+        {
+            items_returned.innerHTML=tableAmazon;
+
+        }
+        if(sitename=='tableFlipkart')
+        {
+            items_returned.innerHTML=tableFlipkart;
+
+        }
+        if(sitename=='tableEbay')
+        {
+            items_returned.innerHTML=tableEbay;
+
+        }
+        if(sitename=='tableSnapdeal')
+        {
+            items_returned.innerHTML=tableSnapdeal;
+
+        }
+
+           
+
+    }
+    function loadData()
+    {
+        loader.style.display='none';
+        scrapcontent_parent.style.display='block';
+        scrapData();
+        loadTable('tableAmazon');
+     
+    }
+    function doload()
+    {
+        if(allcontentAmz.loaded&&allcontentFlipkart.loaded&&allcontentebay.loaded&&allcontentsnapdeal.loaded)
+            loadData()
+    }
+    allcontentAmz.onload=function(){
+        allcontentAmz.loaded=true;
+        doload();
+    };
+    allcontentFlipkart.onload=function(){
+        allcontentFlipkart.loaded=true;
+        doload();
+    };
+    allcontentebay.onload=function(){
+        allcontentebay.loaded=true;
+        doload();
+    };
+    allcontentsnapdeal.onload=function(){
+        allcontentsnapdeal.loaded=true;
+        doload();
+    }
+    $(document).ready(function(){
+        $("#amazon").click(function(){
+            $(this).addClass('active');
+            $("#flipkart").removeClass('active');
+            $("#ebay").removeClass('active');
+            $("#snapdeal").removeClass('active');
+
+        });
+        $("#flipkart").click(function(){
+            $(this).addClass('active');
+            $("#amazon").removeClass('active');
+            $("#ebay").removeClass('active');
+            $("#snapdeal").removeClass('active');
+
+        })
+        $("#ebay").click(function(){
+            $(this).addClass('active');
+            $("#flipkart").removeClass('active');
+            $("#amazon").removeClass('active');
+            $("#snapdeal").removeClass('active');
+
+        })
+        $("#snapdeal").click(function(){
+            $(this).addClass('active');
+            $("#flipkart").removeClass('active');
+            $("#ebay").removeClass('active');
+            $("#amazon").removeClass('active');
+
+        })
+    });
+
+</script>
