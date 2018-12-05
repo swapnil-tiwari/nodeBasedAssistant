@@ -1,6 +1,24 @@
-var express=require('express');
+    var express=require('express');
 var app=express();
+var fs= require('fs');
 var request = require('request');
+var history=[];
+app.get('/history',function(req,res){
+
+    if(req.param('json'))
+    {
+        res.json(history);
+        return;
+    }
+    var result=`<head><title>History Record</title><link href='/css/style.css' rel='stylesheet' ></head><body> <table class='result_table' style=''><tr><th>Item Searched</th><th>IP</th><th>Host Name</th><th>TLS Connection</th><th>Original URL</th></tr>`
+    for(let each of history)
+    {
+        result+=`<tr><td>${each['Item-Name']}</td><td>${each['req-IP']}</td><td>${each['req-Hostname']}</td><td>${each['req-TLS']}</td><td>${each['req-OriginalURl']}</td></tr>`
+    }
+    result+='</table></body>';
+    res.setHeader('content-type','text/html');
+    res.end(result);
+})
 app.get('/amazon',function(req,res){
     console.log('~Amazon Request recevied');
     var search=req.param('search');
@@ -17,8 +35,20 @@ app.get('/amazon',function(req,res){
          
         console.log('statusCode:', response && response.statusCode);
         console.log('Amazon body:Available-------');
-        console.log('-------------------------------------'); 
-        
+        console.log('-------------------------------------');
+        searchedItem={
+            'Item-Name':search,
+            'req-Hostname':req.hostname,
+            'req-TLS':req.secure,
+            'req-IP':req.ip,
+            'req-OriginalURl':req.originalUrl,
+            'req-Path':req.path
+        };
+        history.push(searchedItem);
+        // fs.appendFile('./files/searchHistory.txt',JSON.stringify(searchedItem),function(err){
+        //     if(err) throw err;
+        //     console.log("File Saved!");
+        // })
         //console.log(body);
         res.end(body);
       });
@@ -69,6 +99,7 @@ app.get('/snapdeal',function(req,res){
       });
       
 })
+   
 app.use(express.static('./'));
 
 

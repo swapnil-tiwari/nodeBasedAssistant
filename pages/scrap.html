@@ -39,10 +39,10 @@
                         <a class="navbar-brand" href="#">&nbsp;&nbsp;DM-AI {Scraper}</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li class="active" id="amazon" onclick="loadTable('tableAmazon')"><a href="#">Amazon</a></li>
-                        <li class="" id="flipkart" onclick="loadTable('tableFlipkart')"><a href="#">Flipkart</a></li>
-                        <li class="" id="ebay" onclick="loadTable('tableEbay')"><a href="#">Ebay</a></li>
-                        <li class="" id="snapdeal" onclick="loadTable('tableSnapdeal')"><a href="#">Snapdeal</a></li>
+                        <li class="active" id="amazon" onclick="loadTable('tableAmazon')"><a href="#"><img src="../images/amazon-logo.png"></a></li>
+                        <li class="" id="flipkart" onclick="loadTable('tableFlipkart')"><a href="#"><img src="../images/flipkart-logo.png"></a></li>
+                        <li class="" id="ebay" onclick="loadTable('tableEbay')"><a href="#"><img src="../images/ebay-logo.png"></a></li>
+                        <li class="" id="snapdeal" onclick="loadTable('tableSnapdeal')"><a href="#"><img src="../images/snapdeal-logo.png"></a></li>
                     </ul>
                     <form class="navbar-form navbar-left" action="./scrap.html" method="GET">
                         <div class="form-group">
@@ -59,8 +59,13 @@
                 </div>
             </nav>
             <div class="scrapcontent">
-                <table class="result_table" id="items_returned">
+                <table class="result_table" >
+                        <col width="10%">
+                        <col width="60%">
+                        <col width="20%">
+                        <tbody id="items_returned">
 
+                        </tbody>
                 </table>
             </div>
 
@@ -99,7 +104,7 @@
         }
         for(let each of allFlipkartItems)
         {
-            tableFlipkart+=`<tr><td ><img src="../images/default.png" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+            tableFlipkart+=`<tr><td ><img src="../images/flipkart-icon.png" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
             
         }
         for(let each of allEbayItems)

@@ -17,7 +17,7 @@
     margin-left:auto;
     margin-right: auto;
     width: 95%;
-    height: 95%;
+    height: 95vh;
     background: #F0F0F0;  /* fallback for old browsers */
     
     border: 1px solid #05668D;
@@ -26,7 +26,7 @@
 }
 .navbar
 {
-    width:80%;
+    width:90%;
     margin:auto;
     box-shadow: 3px 8px 19px 0px #a9a6a6;
 
@@ -52,6 +52,11 @@
 .navbar-nav li{
     transition: all 0.5s;
 }
+.navbar-nav li a img
+{
+    
+    max-height: 20px;
+}
 .scrapcontent
 {
     width: 96%;
@@ -69,6 +74,10 @@
 {
     border: 1px solid #ddd;
     padding: 8px;
+}
+td:nth-child(1)
+{
+    text-align:center;
 }
 .result_table tr:nth-child(even){background-color: #f2f2f2;}
 
