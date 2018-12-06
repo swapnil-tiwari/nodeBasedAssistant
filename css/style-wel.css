@@ -38,6 +38,7 @@ outline: none;
 }
 .welcome_msg
 {
+    letter-spacing: 3px;
     text-align:center;
 }
 @media only screen and (max-width: 550px) {

@@ -11,7 +11,7 @@ function scrapEbay()
             item.title=each.querySelector('.s-item__title').innerText;
             if(each.querySelector('.s-item__image-img').getAttribute('src').split('.').includes('gif'))
             {
-            item.image='../images/default.png';
+            item.image='../images/ebay_default.png';
             }
             else
             {

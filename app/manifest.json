@@ -1,0 +1,23 @@
+{
+    "name": "DM-AI",
+    "short_name": "DM-AI",
+    "theme_color": "#05668d",
+    "background_color": "#05668d",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/index.html",
+    "icons": [{
+        "src": "./icons/android-icon-36x36.png",
+          "sizes": "36x36",
+          "type": "image/png"
+        }, {
+          "src": "./icons/android-icon-144x144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }, {
+          "src": "./icons/android-icon-192x192.png",
+          "sizes": "152x152",
+          "type": "image/png"
+        }
+      ]
+  }

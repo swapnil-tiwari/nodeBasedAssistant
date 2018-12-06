@@ -4,6 +4,7 @@
 <head>
     <title>DM-AI</title>
     <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../images/fav.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="Description" CONTENT="DawnMist">
     <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
@@ -14,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="theme-color" content="#2f2f2f">
+    <meta name="theme-color" content="#010101">
 </head>
 
 <body>
@@ -46,7 +47,7 @@
                     </ul>
                     <form class="navbar-form navbar-left" action="./scrap.html" method="GET">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <input type="text" class="form-control" placeholder="Search" name="q" required>
                         </div>
                         <button type="submit" class="btn btn-default">Search</button>
                         <button type="button" class="btn btn-default" id="showitembtn">Searched Item</button>
@@ -99,22 +100,22 @@
         scrapSnapdeal();
         for(let each of allAmazonItems)
         {
-            tableAmazon+=`<tr><td><img src="${each.image}" class="items_img"/></td><td><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td>&#8377;${each.price}</td></tr>`
+            tableAmazon+=`<tr><td><img src="${each.image}" class="items_img"/></td><td><a href="${each.accessLink}" class="items_link" target="_blank">${each.title}</a></td><td>&#8377;${each.price}</td></tr>`
                 
         }
         for(let each of allFlipkartItems)
         {
-            tableFlipkart+=`<tr><td ><img src="../images/flipkart-icon.png" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+            tableFlipkart+=`<tr><td ><img src="../images/flipkart-icon.png" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link" target="_blank">${each.title}</a></td><td >${each.price}</td></tr>`
             
         }
         for(let each of allEbayItems)
         {
-            tableEbay+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+            tableEbay+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link" target="_blank">${each.title}</a></td><td >${each.price}</td></tr>`
                 
         }
         for(let each of allSnapdealItems)
         {
-            tableSnapdeal+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link">${each.title}</a></td><td >${each.price}</td></tr>`
+            tableSnapdeal+=`<tr><td ><img src="${each.image}" class="items_img"/></td><td ><a href="${each.accessLink}" class="items_link" target="_blank">${each.title}</a></td><td >${each.price}</td></tr>`
                 
         }
 

@@ -8,7 +8,16 @@ function scrapSnapdeal()
         let item={};
         try{
             item.title=each.querySelector('.product-title').innerText;
-            item.image=each.querySelectorAll('.product-image')[1].getAttribute('src')
+            if(each.querySelectorAll('.product-image')[1].getAttribute('src'))
+            {
+                item.image=each.querySelectorAll('.product-image')[1].getAttribute('src');
+
+            }
+            else
+            {
+                item.image='../images/snapdeal-default.png';
+            }
+            
             item.price=each.querySelector('.product-price').innerText;
             item.accessLink=each.querySelector('.dp-widget-link').getAttribute('href');
         }
